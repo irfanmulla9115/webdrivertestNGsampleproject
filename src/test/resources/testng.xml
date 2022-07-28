@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="My Sample Test Suite" thread-count="2" parallel="tests">
+
+	<!--<listeners>
+		<listener class-name="TestNGAnnotations.MyListenerTest"></listener>	
+	</listeners> -->
+
+
+	<test thread-count="5" name="My Sample App Test -Chrome"
+		verbose="2" thread-count="2" parallel="tests"> 
+		
+		<!-- parallel keyword has 3 values=:
+		1) at suite level parallel ="tests"-
+		2)at class level parallel ="classes" 
+		3) at method level parallel ="methods" -->
+		
+		<!-- //verbose range is from 1-10(it will give you more info depending on 
+			number mentioned) -->
+
+		<parameter name="browser" value="chrome" />
+		<parameter name="url" value="http://www.google.com" />
+		<parameter name="headless" value="no" />
+
+		<classes>
+			<class name="TestNGAnnotations.ContactsTest" />
+			<class name="TestNGAnnotations.HomeTest" />
+
+		</classes>
+	</test>
+
+
+	<test thread-count="5" name="My Sample App Test -FireFox"
+		verbose="2"> <!-- //verbose range is from 1-10(it will give youmore info depending on 
+			number mentioned) -->
+
+		<parameter name="browser" value="firefox" />
+		<parameter name="url" value="http://www.google.com" />
+		<parameter name="headless" value="no" />
+		<classes>
+			<class name="TestNGAnnotations.ContactsTest" />
+			<class name="TestNGAnnotations.HomeTest" />
+		</classes>
+	</test>
+
+</suite> 
